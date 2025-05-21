@@ -2,7 +2,7 @@ import { Formik, Form, ErrorMessage, Field } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import React from 'react'
-import UseAuth from "../Hooks/UseAuth";
+import useAuth from "../Hooks/UseAuth";
 
 const SignupSchema = Yup.object().shape({
   username: Yup.string()
@@ -25,7 +25,7 @@ const SignupSchema = Yup.object().shape({
 
 const Signup = () => {
 
-    const {Signup_axios}= UseAuth()
+    const {Signup_axios}= useAuth()
 
   return (
     <div className="min-w-full min-h-screen flex flex-col justify-center items-center ">

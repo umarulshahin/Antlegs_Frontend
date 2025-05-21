@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
 import Cookies from 'js-cookie'
 import { useNavigate } from "react-router-dom";
-import { addUserdata } from "../Redux/UserSlice";
+import { Logout } from "../Redux/UserSlice";
 
 const Header = () => {
   const [toggel, settoggel] = useState(false);
@@ -15,7 +15,7 @@ const Header = () => {
 
   const handleLogout = () => {
     Cookies.remove('Usertoken')
-    dispatch(addUserdata({}))
+    dispatch(Logout({}))
     navigate('/')
 
   };

@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import * as Yup from "yup";
 import { Link, useActionData } from "react-router-dom";
-import UseAuth from "../Hooks/UseAuth";
+import useAuth from "../Hooks/UseAuth";
 
 
 
@@ -18,7 +18,7 @@ const SigninSchema = Yup.object().shape({
 
 const Signin = () => {
 
-   const {Signin_axios} = UseAuth();
+   const {Signin_axios} = useAuth();
 
   return (
     <div className="min-w-full min-h-screen flex flex-col justify-center items-center ">

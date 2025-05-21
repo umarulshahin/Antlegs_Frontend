@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { addUserdata } from "../Redux/UserSlice";
-const UseAuth = () => {
+import useUsers from "./UseUsers";
+const useAuth = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
+    const { GetUsers_axios } = useUsers()
   const Signin_axios = async (values, setSubmitting) => {
-    console.log(values, "values signin axios");
+
     try {
       const response = await axios.post(SigninURL, values, {
         headers: {
@@ -20,12 +22,17 @@ const UseAuth = () => {
       });
 
       if (response.status === 200) {
-        console.log(response.data, "response signin axios");
+
         const {token,userdata} = response.data;
         
-        Cookies.set('Usertoken',token,{expires: 7, sameSite:'strict'})
+        Cookies.set('Usertoken',JSON.stringify(token),{expires: 7, sameSite:'strict'})
+
         dispatch(addUserdata(userdata))
+
+        GetUsers_axios()
+
         navigate("/Dashboard");
+
         toast.success("Login Successfully");
       }
 
@@ -45,7 +52,6 @@ const UseAuth = () => {
 }
 
   const Signup_axios = async (values, setSubmitting) => {
-    console.log(values, "values signup axios");
 
     try {
       const response = await axios.post(SignupURL, values, {
@@ -75,4 +81,4 @@ const UseAuth = () => {
   return { Signin_axios, Signup_axios };
 };
 
-export default UseAuth;
+export default useAuth;

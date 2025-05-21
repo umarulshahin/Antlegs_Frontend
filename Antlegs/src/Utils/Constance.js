@@ -5,3 +5,5 @@ export const SignupURL = BaseURL+"signup/";
 
 export const SigninURL = BaseURL+"signin/"; 
 
+export const UserManagemenetURL = BaseURL+"usermanagement/";
+
