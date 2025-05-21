@@ -36,21 +36,12 @@ const UsersTable = () => {
     }).format(date);
   };
 
-  const handleDelete = (id) => {
-    const updated = filteredUsers.filter(user => user._id !== id);
-    setFilteredUsers(updated);
-    setActiveRow(null);
-  };
-
-  const handleUpdate = (id) => {
-    console.log(`Update user with ID: ${id}`);
-    setActiveRow(null);
-  };
 
   const handleModal = (data,type)=>{
     setUpdatedata(data)
     setModalType(type)
     setIsModalOpen(true)
+    setActiveRow(null)
   }
 
   const handleCloseModal = () => {
@@ -133,14 +124,15 @@ const UsersTable = () => {
                   </td>
                 </tr>
               ))}
-              <ModalManager
+              
+            </tbody>
+          </table>
+          <ModalManager
                 data ={updatedata}
                 type={modalType}
                 closeModal={handleCloseModal}
                 isModal={isModalOpen}
                />
-            </tbody>
-          </table>
         </div>
 
         {filteredUsers.length === 0 && (
