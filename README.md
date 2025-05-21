@@ -17,17 +17,16 @@ This is the **frontend** of the full-stack authentication system built with **Re
 
 ### 1. Clone the Repository
 
-    git clone https://github.com/your-username/frontend-repo-name
+    git clone : https://github.com/umarulshahin/Antlegs_Frontend.git
     cd Antlegs
     
 2. Install Dependencies
-3. 
-      npm install
-   
 
+       npm install
+   
 4. Run the App
  
-    npm start
+       npm start
 
 ✅ Features
 
